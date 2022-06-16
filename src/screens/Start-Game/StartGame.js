@@ -1,12 +1,12 @@
 import {Button, Image, StyleSheet, Text, TextInput, View} from 'react-native';
 
 import Colors from '../../constants/colors';
+import OsitosPage from '../OsitosPage/OsitosPages';
 import React from "react";
 import { useFonts } from 'expo-font';
 
 const StartGame = ({onStartGame})=> {
-    // const [beards, setBeards] = useState(false);
-    // const [bedroom, setBedroom] = useState(false);
+    
     return(
         <View style={styles.container}>
             <Text style={styles.title}>
