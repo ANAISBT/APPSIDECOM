@@ -1,30 +1,11 @@
-import { Button, Image, KeyboardAvoidingView, StyleSheet, Text, TextInput, View } from "react-native";
-import React, {useState} from "react";
+import { Button, Image, StyleSheet, Text, View } from "react-native";
 
 import Colors from "../../constants/colors";
-import OsitosPage from '../OsitosPage/OsitosPages';
+import React from "react";
 import { useFonts } from "expo-font";
 
-const StartGame = ({}) => {
- const [confirmed, setConfirmed] = useState(false);
- const isIOS = Platform.OS === "ios";
-
- const handlerConfirmInput = () => {
-   setConfirmed(true);
-};
-
- let confirmedOutput;
- if (confirmed) {
- confirmedOutput = (
- <OsitosPage />
- );
- }
+export default function StartGame({navigation}){
   return (
-     <KeyboardAvoidingView
-       style={styles.container}
-      behavior={isIOS ? "position" : "height"}
-       keyboardVerticalOffset={30}
-     >
     <View style={styles.container}>
       <Text style={styles.title}>Selecciona lo que deseas</Text>
       <View style={styles.inputContainer}>
@@ -35,11 +16,10 @@ const StartGame = ({}) => {
         />
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Button title="Ositos" onPress={handlerConfirmInput} color="#FFA69E" />
+            <Button title="Ositos" onPress={()=> navigation.navigate("Ositos")} color="#FFA69E" />
           </View>
         </View>
       </View>
-      {confirmedOutput}
       <View style={styles.inputContainer}>
         <Text>Colchones</Text>
         <Image
@@ -48,15 +28,13 @@ const StartGame = ({}) => {
         />
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Button title="Colchones" onPress={() => null} color="#FFA69E" />
+            <Button title="Colchones" onPress={() => navigation.navigate("Colchones")} color="#FFA69E" />
           </View>
         </View>
       </View>
     </View>
-    // </KeyboardAvoidingView>
   );
 };
-export default StartGame;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
