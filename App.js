@@ -2,6 +2,7 @@ import { StyleSheet, View } from 'react-native';
 
 import AppLoading from 'expo-app-loading';
 import  Header from './src/components/header/header';
+import OsitosPage from './src/screens/OsitosPage/OsitosPages';
 import React from 'react';
 import StartGame from './src/screens/Start-Game/StartGame';
 import { useFonts } from 'expo-font';
@@ -14,16 +15,7 @@ export default function App() {
    });
   if(!loaded) return <AppLoading />;
 
-  // const[userOso, SetUserOso] = UseState()
-
-  //   const handlerOsitos = selectedNumber => {
-  //       SetUserOso(selectedNumber)
-  //   }
-
-  //   let content=<StartGame onStartGame={handlerOsitos}/>
-  //   if(userOso){
-  //     content=<OsitosPage />
-  //   }
+   
 
   return (
     <View style={styles.container}>
