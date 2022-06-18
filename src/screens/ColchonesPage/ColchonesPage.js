@@ -1,4 +1,13 @@
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  Button,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import React, { useState } from "react";
 
 import Colors from "../../constants/colors";
@@ -38,9 +47,10 @@ const ColchonesPage = () => {
         </View>
     )
   }
-
+  const isIOs=Platform.OS=="ios";
   return (
-     
+    <KeyboardAvoidingView style={styles.keyboard} behavior={isIOs ? "position" : "height"} keyboardVerticalOffset={30}>
+    <ScrollView contentContainerStyle={styles.ScrollView}>
       <View style={styles.screen}>
         <Text style={styles.title}> COMPRANDO </Text>
         <View style={styles.inputContainer}>
@@ -74,6 +84,8 @@ const ColchonesPage = () => {
         </View>
         {confirmedOutput}
       </View>
+    </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 export default ColchonesPage;

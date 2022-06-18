@@ -1,4 +1,4 @@
-import { Button, Dimensions, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { Button, Dimensions, KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import React, { useState } from "react";
 
 import Colors from "../../constants/colors";
@@ -38,9 +38,9 @@ const OsitosPage = () => {
         </View>
     )
   }
-
+  const isIOs=Platform.OS=="ios";
   return (
-     
+    <KeyboardAvoidingView style={styles.keyboard} behavior={isIOs ? "position" : "height"} keyboardVerticalOffset={30}>
       <ScrollView contentContainerStyle={styles.screen}>
         <Text style={styles.title}> COMPRANDO </Text>
         <View style={styles.inputContainer}>
@@ -74,6 +74,7 @@ const OsitosPage = () => {
         </View>
         {confirmedOutput}
       </ScrollView>
+      </KeyboardAvoidingView>
   );
 };
 export default OsitosPage;
