@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
 
 import AppLoading from 'expo-app-loading';
 import ColchonesPage from './src/screens/ColchonesPage/ColchonesPage';
@@ -21,7 +21,7 @@ export default function App() {
   if(!loaded) return <AppLoading />;
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Header  title= "SIDECOM" />
 <NavigationContainer>
   <Stack.Navigator>
@@ -39,7 +39,7 @@ export default function App() {
     options={{title: "Colchones Page"}}/>
   </Stack.Navigator>
 </NavigationContainer>
-</View>
+</SafeAreaView>
   );
 }
 
@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    alignContent: "center",
   },
 
 });

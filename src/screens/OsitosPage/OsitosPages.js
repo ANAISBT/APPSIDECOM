@@ -1,4 +1,4 @@
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import { Button, Dimensions, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import React, { useState } from "react";
 
 import Colors from "../../constants/colors";
@@ -41,7 +41,7 @@ const OsitosPage = () => {
 
   return (
      
-      <View style={styles.screen}>
+      <ScrollView contentContainerStyle={styles.screen}>
         <Text style={styles.title}> COMPRANDO </Text>
         <View style={styles.inputContainer}>
           <Text> Escriba la cantidad que desea comprar</Text>
@@ -73,15 +73,17 @@ const OsitosPage = () => {
           </View>
         </View>
         {confirmedOutput}
-      </View>
+      </ScrollView>
   );
 };
 export default OsitosPage;
+const {width,height} =Dimensions.get("window");
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
     padding: 10,
     alignItems: "center",
+    backgroundColor:Colors.white,
   },
   title: {
     fontSize: 20,
@@ -91,7 +93,7 @@ const styles = StyleSheet.create({
     width: 100,
   },
   inputContainer: {
-    width: 300,
+    width: width/1.5,
     maxWidth: "80%",
     padding: 20,
     alignItems: "center",
@@ -101,7 +103,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.26,
     elevation: 10,
     borderRadius: 10,
-    backgroundColor: "white",
+    backgroundColor: Colors.white,
     marginVertical: 20,
   },
   buttonContainer: {
@@ -109,6 +111,7 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "space-between",
     paddingHorizontal: 15,
+    marginTop: height>600 ? 10:5,
   },
   input: {
     height: 30,
