@@ -20,7 +20,6 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header title="SIDECOM" />
       <NavigationContainer>
         <SidecomNavigator />
       </NavigationContainer>
